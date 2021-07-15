@@ -1,33 +1,36 @@
 const key = "L6hLw10R0bLGztF9APZn68K21ZWbFlAC";
 const topic = "arts";
 
-//API CALL -- > TO RETRIEVE ARTICLES AND STORE THEM ACCORDING TO TOPIC
+//API CALL -- > Retrieves articles according to specific topic
 async function grabArticles(key, topic) {
   const res = await axios.get(
     `https://api.nytimes.com/svc/topstories/v2/${topic}.json?api-key=${key}`
   );
   let arrayResults = res.data.results;
-  console.log(arrayResults);
-  makeCards(arrayResults, topic);
+  //makes cards according to specific topic
+  makeCards(arrayResults, `${topic}`);
 }
+
+
 
 //Makes title for each topic -- successfully creates list of all topics
 function makeSections(topicList) {
   allStoriesContainer = document.body.querySelector("#newsStories");
   for (let topic of topicList) {
     let topicContainer = document.createElement("DIV");
-    topicContainer.className = `${topic}`;
+    topicContainer.id = `${topic}`;
     const topicTitle = document.createElement("P");
+    topicTitle.className = `${topic}Title`;
     topicTitle.innerHTML = `${topic}`;
     topicContainer.appendChild(topicTitle);
     allStoriesContainer.appendChild(topicContainer);
   }
 }
 
-
 function makeCards(results, topic) {
-  console.log(`${topic}`);
-  let section = document.querySelector(`#${topic}`)
+  console.log("topic:", topic);
+  console.log("results:", results);
+  let section = document.body.querySelector(`#${topic}`);
   for (let article of results) {
     const card = document.createElement("A");
     const textBox = document.createElement("DIV");
@@ -43,10 +46,9 @@ function makeCards(results, topic) {
     textBox.appendChild(authors);
     card.appendChild(img);
     card.appendChild(textBox);
-
     section.appendChild(card);
   }
-  allStoriesContainer.appendChild(topicContainer);
+  
 }
 
 const topicsArray = [
@@ -78,6 +80,7 @@ const topicsArray = [
   "world",
 ];
 makeSections(topicsArray);
-const artsArticles = grabArticles(key, 'arts');
-console.log('array', artsArticles);
+grabArticles(key, topicsArray[0]);
+grabArticles(key, 'automobiles');
+
 

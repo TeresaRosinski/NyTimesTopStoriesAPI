@@ -1,20 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+}
+
 #arts {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: flex-start;
   flex-wrap: wrap;
+  padding:5%;
+  background-color: #203647;
 }
+.artsTitle{
+  font-family: 'Zen Tokyo Zoo', cursive;
+  font-size: 700%;
+  width: 100%;
+  justify-content: center;
+  border-top: solid 3px #4DA8DA;
+  border-left:solid 3px #4DA8DA;
+  padding: 5%;
+  color:#4DA8DA;
+  margin-bottom: 2%;
 
-.card {
+ 
+}
+ #arts .card {
   width: 20%;
   height: auto;
-  background-color: antiquewhite;
+  background-color: #EEFBFB;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   margin: 2%;
- 
-}
+  box-shadow:  #12232E 0px 3px 8px;
+ }
+
+ #arts .card:hover{
+   transform: scale(1.1, 1.1);
+   cursor: pointer;
+ }
 
 
 .textBox{
