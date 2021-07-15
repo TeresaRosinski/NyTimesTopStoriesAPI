@@ -1,0 +1,23 @@
+#arts {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 20%;
+  height: auto;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 2%;
+ 
+}
+
+
+.textBox{
+  width:90%;
+  margin: 5%;
+}
