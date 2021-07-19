@@ -1,4 +1,4 @@
-<h1>align="center"><strong>New York Times Top Stoies API Project</strong></h1>
+<h1 align="center"><strong>New York Times Top Stoies API Project</strong></h1>
 
 <h4 align="center"><em>Vanilla Javascript Project that connects to and works with the New York Times API</em></h4>
 
