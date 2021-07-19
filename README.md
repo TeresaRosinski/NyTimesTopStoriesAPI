@@ -1,5 +1,5 @@
 <h1 align="center"><strong>New York Times Top Stoies API Project</strong></h1>
-
+<h2 align="center">https://teresarosinski.github.io/NyTimesTopStoriesAPI/ </h2>
 <h4 align="center"><em>Vanilla Javascript Project that connects to and works with the New York Times API</em></h4>
 
 ![Screenshot](arts.png)
