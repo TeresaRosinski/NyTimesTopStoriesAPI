@@ -11,8 +11,6 @@ async function grabArticles(key, topic) {
   makeCards(arrayResults, `${topic}`);
 }
 
-
-
 //Makes title for each topic -- successfully creates list of all topics
 function makeSections(topicList) {
   allStoriesContainer = document.body.querySelector("#newsStories");
@@ -82,6 +80,5 @@ const topicsArray = [
 ];
 makeSections(topicsArray);
 grabArticles(key, topicsArray[0]);
-grabArticles(key, 'automobiles');
-
-
+grabArticles(key, "automobiles");
+grabArticles(key, topicsArray[2]);

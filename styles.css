@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Zen+Tokyo+Zoo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;1,400&family=STIX+Two+Math&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;1,400&family=Mukta:wght@200;300;400;500;600;700;800&family=STIX+Two+Math&display=swap');
 *{
   margin: 0;
   padding: 0;
@@ -107,4 +108,45 @@
   letter-spacing: 1px;
   font-weight: 500;
   color: #Bd1e51;
+}
+
+#books{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  padding: 5%;
+  font-family: 'Mukta', sans-serif;
+}
+.booksTitle{
+  width: 100%;
+  font-size: 500%;
+  font-weight: 800;
+  text-align: center;
+  padding-top: 8%;
+  text-transform: capitalize;
+  height: 30vh;
+  color: #12151f;
+  border-top:  2px solid #05f4b7;
+  border-bottom: 2px solid #05f4b7;
+  margin-bottom: 5%;
+}
+#books .card{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 2% 1% 2% 1%;
+  text-decoration: none;
+  background-color: #12151f;
+}
+#books .textBox{
+  color: #ffffff;
+  padding: 5%;
+}
+#books .title{
+  font-size: 150%;
+  letter-spacing: 2px;
+  margin-bottom: 3%;
+  font-weight: 200;
 }
