@@ -78,7 +78,8 @@ const topicsArray = [
   "us",
   "world",
 ];
+
 makeSections(topicsArray);
 grabArticles(key, topicsArray[0]);
-grabArticles(key, "automobiles");
+grabArticles(key, topicsArray[1]);
 grabArticles(key, topicsArray[2]);
