@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Zen+Tokyo+Zoo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;1,400&family=STIX+Two+Math&display=swap');
 *{
   margin: 0;
   padding: 0;
 }
-
 #arts {
   display: flex;
   flex-direction: row;
@@ -23,27 +24,87 @@
   padding: 5%;
   color:#4DA8DA;
   margin-bottom: 2%;
-
- 
 }
- #arts .card {
+#arts .card {
   width: 20%;
   height: auto;
   background-color: #EEFBFB;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 2%;
+  margin: 1.5%;
   box-shadow:  #12232E 0px 3px 8px;
- }
+  text-decoration: none;
+  color: #12232E;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 110%;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+#arts .card:hover{
+  transform: scale(1.1, 1.1);
+  cursor: pointer;
+}
+#arts .textBox{
+  padding: 10%;
+}
+#arts .title {
+  margin-bottom: 10%;
+  font-size: 120%;
+  text-transform: uppercase;
+}
+#automobiles{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #490b3d;
+}
+.automobilesTitle{
+  width: 60%;
+  font-size: 800%;
+  margin-left: 40%;
+  margin-bottom: 10%;
+  text-align: center;
+  padding-top: 15%;
+  padding-right:5%;
+  font-family: 'STIX Two Math', serif;
+  letter-spacing: 4px;
+  background-color: #490b3d;
+  color: #f5f5f5;
+  border-bottom: 1px solid #f1B814;
 
- #arts .card:hover{
-   transform: scale(1.1, 1.1);
-   cursor: pointer;
- }
 
-
-.textBox{
-  width:90%;
-  margin: 5%;
+}
+#automobiles .card{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 40%;
+  margin: 1%;
+  background-color: #f5f5f5;
+  color: #F1b814;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 2%;
+  box-shadow:  #12232E 0px 3px 8px;
+}
+#automobiles .card:hover{
+  transform: scale(1.02);
+  background-color: #f9f9f9;
+}
+#automobiles .textBox{
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  font-size: 100%;
+  margin-left: 1%;
+}
+#automobiles .title{
+  font-size: 120%;
+  margin-bottom: 5%;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: #Bd1e51;
 }

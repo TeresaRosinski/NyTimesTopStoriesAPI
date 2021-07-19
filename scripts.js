@@ -37,18 +37,19 @@ function makeCards(results, topic) {
     const img = document.createElement("IMG");
     const title = document.createElement("P");
     const authors = document.createElement("P");
-    title.innerHTML = article.abstract;
+    title.innerHTML = article.title;
     authors.innerHTML = article.byline;
     img.src = article.multimedia[4].url;
+    card.href = article.short_url;
     card.className = "card";
     textBox.className = "textBox";
+    title.className = "title";
     textBox.appendChild(title);
     textBox.appendChild(authors);
     card.appendChild(img);
     card.appendChild(textBox);
     section.appendChild(card);
   }
-  
 }
 
 const topicsArray = [
