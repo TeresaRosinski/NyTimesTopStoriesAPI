@@ -53,6 +53,28 @@ function makeCards(results, topic) {
 		section.appendChild(card);
 	}
 }
+function makeSearchCards(results, topic) {
+	let section = document.body.querySelector(`#${topic}SearchResults`);
+	for (let article of results) {
+		const card = document.createElement("A");
+		const textBox = document.createElement("DIV");
+		const img = document.createElement("IMG");
+		const title = document.createElement("P");
+		const authors = document.createElement("P");
+		title.innerHTML = article.title;
+		authors.innerHTML = article.byline;
+		img.src = article.multimedia[4].url;
+		card.href = article.short_url;
+		card.className = "card";
+		textBox.className = "textBox";
+		title.className = "title";
+		textBox.appendChild(title);
+		textBox.appendChild(authors);
+		card.appendChild(img);
+		card.appendChild(textBox);
+		section.appendChild(card);
+	}
+}
 
 const topicsArray = [
 	"arts",
@@ -86,7 +108,6 @@ const topicsArray = [
 
 /*
 grabArticles(key, topicsArray[0]);
-
 
 grabArticles(key, topicsArray[1]);
 grabArticles(key, topicsArray[2]);
