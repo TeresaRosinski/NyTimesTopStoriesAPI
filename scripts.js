@@ -6,14 +6,14 @@ const artsSearchForm = document.querySelector("#artsSearchForm");
 artsSearchForm.addEventListener("submit", async function(e){
   e.preventDefault();
 
-  const searchTerm = artsSearchForm.elements.query.value;
+  const searchTerm = artsSearchForm.elements.query.value.toUpperCase();
   
   const res = await axios.get(
 		`https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=${key}`
 	);
  
   const arrayResults = res.data.results;
-  const filteredRes = arrayResults.filter(result => result.title.includes(searchTerm))
+  const filteredRes = arrayResults.filter(result => result.title.toUpperCase().includes(searchTerm))
   console.log('filtered ', filteredRes);
   makeCards(filteredRes, 'arts');
   })
