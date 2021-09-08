@@ -78,13 +78,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
 }
-.searchedResults{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
+
 .artsHeader{
   justify-content: center;
   border-top: solid 3px #4DA8DA;

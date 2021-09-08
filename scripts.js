@@ -17,7 +17,7 @@ artsSearchForm.addEventListener("submit", async function (e) {
 		result.title.toUpperCase().includes(searchTerm)
 	);
 	console.log("filtered ", filteredRes);
-	makeSearchCards(filteredRes, "arts");
+	makeCards(filteredRes, "arts");
 });
 
 //Function to dynamically create event listeners for specific search forms base don section name
@@ -34,6 +34,7 @@ async function grabArticles(key, topic) {
 
 function makeCards(results, topic) {
 	let section = document.body.querySelector(`#${topic}ResultsAll`);
+	section.innerHTML = "";
 	for (let article of results) {
 		const card = document.createElement("A");
 		const textBox = document.createElement("DIV");
@@ -52,35 +53,6 @@ function makeCards(results, topic) {
 		card.appendChild(img);
 		card.appendChild(textBox);
 		section.appendChild(card);
-	}
-}
-
-function makeSearchCards(results, topic) {
-
-	let section = document.body.querySelector(`#${topic}ResultsAll`);
-	section.className = "hide";
-	let displayResSec = document.body.querySelector(`#${topic}SearchRes`);
-	displayResSec.innerHTML = "";
-
-
-	for (let article of results) {
-		const card = document.createElement("A");
-		const textBox = document.createElement("DIV");
-		const img = document.createElement("IMG");
-		const title = document.createElement("P");
-		const authors = document.createElement("P");
-		title.innerHTML = article.title;
-		authors.innerHTML = article.byline;
-		img.src = article.multimedia[4].url;
-		card.href = article.short_url;
-		card.className = "card";
-		textBox.className = "textBox";
-		title.className = "title";
-		textBox.appendChild(title);
-		textBox.appendChild(authors);
-		card.appendChild(img);
-		card.appendChild(textBox);
-		displayResSec.appendChild(card);
 	}
 }
 
