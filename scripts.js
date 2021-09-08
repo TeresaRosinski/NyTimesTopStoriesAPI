@@ -3,21 +3,22 @@ const key = "L6hLw10R0bLGztF9APZn68K21ZWbFlAC";
 //Arts Search Form Code
 const artsSearchForm = document.querySelector("#artsSearchForm");
 
-artsSearchForm.addEventListener("submit", async function(e){
-  e.preventDefault();
+artsSearchForm.addEventListener("submit", async function (e) {
+	e.preventDefault();
 
-  const searchTerm = artsSearchForm.elements.query.value.toUpperCase();
-  
-  const res = await axios.get(
+	const searchTerm = artsSearchForm.elements.query.value.toUpperCase();
+
+	const res = await axios.get(
 		`https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=${key}`
 	);
- 
-  const arrayResults = res.data.results;
-  const filteredRes = arrayResults.filter(result => result.title.toUpperCase().includes(searchTerm))
-  console.log('filtered ', filteredRes);
-  makeCards(filteredRes, 'arts');
-  })
-  
+
+	const arrayResults = res.data.results;
+	const filteredRes = arrayResults.filter((result) =>
+		result.title.toUpperCase().includes(searchTerm)
+	);
+	console.log("filtered ", filteredRes);
+	makeSearchCards(filteredRes, "arts");
+});
 
 //Function to dynamically create event listeners for specific search forms base don section name
 //API CALL -- > Retrieves articles according to specific topic
@@ -32,7 +33,7 @@ async function grabArticles(key, topic) {
 }
 
 function makeCards(results, topic) {
-	let section = document.body.querySelector(`#${topic}`);
+	let section = document.body.querySelector(`#${topic}ResultsAll`);
 	for (let article of results) {
 		const card = document.createElement("A");
 		const textBox = document.createElement("DIV");
@@ -53,8 +54,12 @@ function makeCards(results, topic) {
 		section.appendChild(card);
 	}
 }
+
 function makeSearchCards(results, topic) {
-	let section = document.body.querySelector(`#${topic}SearchResults`);
+	let section = document.body.querySelector(`#${topic}ResultsAll`);
+	section.className = "hide";
+	let displayResSec = document.body.querySelector(`#${topic}SearchRes`);
+	console.log(displayResSec, section);
 	for (let article of results) {
 		const card = document.createElement("A");
 		const textBox = document.createElement("DIV");
@@ -72,7 +77,7 @@ function makeSearchCards(results, topic) {
 		textBox.appendChild(authors);
 		card.appendChild(img);
 		card.appendChild(textBox);
-		section.appendChild(card);
+		displayResSec.appendChild(card);
 	}
 }
 
@@ -106,9 +111,7 @@ const topicsArray = [
   "world", */
 ];
 
-/*
 grabArticles(key, topicsArray[0]);
 
-grabArticles(key, topicsArray[1]);
-grabArticles(key, topicsArray[2]);
-*/
+//grabArticles(key, topicsArray[1]);
+//grabArticles(key, topicsArray[2]);

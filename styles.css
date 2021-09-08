@@ -7,6 +7,51 @@
   margin: 0;
   padding: 0;
 }
+.hide{
+  display:none;
+}
+.show{
+  display:flex;
+}
+.searchForm{ 
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items: flex-end;
+}
+.searchForm input{
+  width: 55vh;
+  color:#203647;
+  margin: 1%;
+  padding: 1%;
+  font-size: 130%;
+  background-color: #f5f5f5;
+  border: 1px solid #4DA8DA;
+}
+
+.searchForm button {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 120%;
+  font-family: 'Zen Tokyo Zoo';
+  background-color: #f5f5f5;
+  color: #4DA8DA;
+  border: 1px solid #4DA8DA;
+  border-radius: 2px;
+}
+.searchForm label {
+  font-size: 200%;
+  font-family: 'Zen Tokyo Zoo', cursive;
+  color: #4DA8DA;
+}
+#arts button:hover{
+  cursor: pointer;
+  background-color: #4DA8DA;
+  color: #f5f5f5;
+  transition: .2s;
+  font-size: 130%;
+}
 .projectOverview{
   font-family: 'Josefin Sans', sans-serif;
   display: flex;
@@ -23,24 +68,34 @@
   margin-bottom: 5%;
 }
 #arts {
+  padding:5%;
+  background-color: #203647;
+}
+.artsResSty{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding:5%;
-  background-color: #203647;
 }
-.artsTitle{
-  font-family: 'Zen Tokyo Zoo', cursive;
-  font-size: 700%;
-  width: 100%;
+.searchedResults{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.artsHeader{
   justify-content: center;
   border-top: solid 3px #4DA8DA;
   border-left:solid 3px #4DA8DA;
   padding: 5%;
+}
+.artsTitle{
+  font-family: 'Zen Tokyo Zoo', cursive;
+  font-size: 700%;
+  
   color:#4DA8DA;
-  margin-bottom: 2%;
 }
 #arts .card {
   width: 20%;
@@ -70,6 +125,9 @@
   font-size: 120%;
   text-transform: uppercase;
 }
+
+
+
 #automobiles{
   display: flex;
   flex-wrap: wrap;
