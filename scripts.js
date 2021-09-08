@@ -56,10 +56,13 @@ function makeCards(results, topic) {
 }
 
 function makeSearchCards(results, topic) {
+
 	let section = document.body.querySelector(`#${topic}ResultsAll`);
 	section.className = "hide";
 	let displayResSec = document.body.querySelector(`#${topic}SearchRes`);
-	console.log(displayResSec, section);
+	displayResSec.innerHTML = "";
+
+
 	for (let article of results) {
 		const card = document.createElement("A");
 		const textBox = document.createElement("DIV");
