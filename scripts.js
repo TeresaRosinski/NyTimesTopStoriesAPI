@@ -7,6 +7,8 @@ artsSearchForm.addEventListener("submit", async function (e) {
 	e.preventDefault();
 
 	const searchTerm = artsSearchForm.elements.query.value.toUpperCase();
+	const searchInput = document.querySelector('#searchArts');
+	console.log(searchInput);
 
 	const res = await axios.get(
 		`https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=${key}`
@@ -18,6 +20,7 @@ artsSearchForm.addEventListener("submit", async function (e) {
 	);
 	console.log("filtered ", filteredRes);
 	makeCards(filteredRes, "arts");
+	searchInput.value = " ";
 });
 
 //Function to dynamically create event listeners for specific search forms base don section name
@@ -27,7 +30,7 @@ async function grabArticles(key, topic) {
 		`https://api.nytimes.com/svc/topstories/v2/${topic}.json?api-key=${key}`
 	);
 	let arrayResults = res.data.results;
-
+	
 	//makes cards according to specific topic
 	makeCards(arrayResults, `${topic}`);
 }
