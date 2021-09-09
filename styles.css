@@ -216,29 +216,35 @@
   color: #Bd1e51;
 }
 #books{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  
   background-color: #ffffff;
   padding: 5%;
   font-family: 'Mukta', sans-serif;
 }
-.booksTitle{
+.booksHeader{
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: stretch;
-  font-size: 600%;
-  font-weight: 800;
   text-align: center;
   padding-top: 8%;
+  padding-bottom: 8%;
   text-transform: capitalize;
-  height: 30vh;
   color: #12151f;
   border-top:  2px solid #05f4b7;
   border-bottom: 2px solid #05f4b7;
   margin-bottom: 5%;
+}
+.booksTitle{
+  font-size: 600%;
+  font-weight: 800;
   letter-spacing: 30px;
+}
+.bookssResultsAll{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 #books .card{
   display: flex;

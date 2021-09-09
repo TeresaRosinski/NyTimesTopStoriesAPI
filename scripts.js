@@ -1,8 +1,9 @@
 const key = "L6hLw10R0bLGztF9APZn68K21ZWbFlAC";
 
-//Arts Search Form Code
+//Section query selectors
 const artsSearchForm = document.querySelector("#artsSearchForm");
 const automobilesSearchForm = document.querySelector("#automobilesSearchForm");
+const bookssSearchForm = document.querySelector("#booksSearchForm");
 
 //ARTS SECTION SEARCH
 artsSearchForm.addEventListener("submit", async function (e) {
@@ -35,6 +36,23 @@ automobilesSearchForm.addEventListener("submit", async function (e) {
 	makeCards(filteredRes, "automobiles", searchTerm);
 	searchInput.value = " ";
 });
+
+//AUTOMOBILES SECTION SEARCH
+bookssSearchForm.addEventListener("submit", async function (e) {
+	e.preventDefault();
+	const searchTerm = bookssSearchForm.elements.query.value.toUpperCase();
+	const searchInput = document.querySelector('#searchbooks');
+	const res = await axios.get(
+		`https://api.nytimes.com/svc/topstories/v2/automobiles.json?api-key=${key}`
+	);
+	const arrayResults = res.data.results;
+	const filteredRes = arrayResults.filter((result) =>
+		result.title.toUpperCase().includes(searchTerm)
+	);
+	makeCards(filteredRes, "books", searchTerm);
+	searchInput.value = " ";
+});
+
 async function grabArticles(key, topic) {
 	const res = await axios.get(
 		`https://api.nytimes.com/svc/topstories/v2/${topic}.json?api-key=${key}`
@@ -47,11 +65,9 @@ async function grabArticles(key, topic) {
 
 //Creates article cards
 function makeCards(results, topic, searchTerm) {
-	console.log('make cards res', results);
 	let section = document.body.querySelector(`#${topic}ResultsAll`);
 	section.innerHTML = "";
 	if (results.length === 0){
-		console.log('no results');
 		const textBox = document.createElement("DIV");
 		const title = document.createElement("P");
 		textBox.className = 'card';
@@ -61,7 +77,6 @@ function makeCards(results, topic, searchTerm) {
 		section.appendChild(textBox);
 	}
 	for (let article of results) {
-		console.log('art multi', article.multimedia);
 		const card = document.createElement("A");
 		const textBox = document.createElement("DIV");
 		const img = document.createElement("IMG");
@@ -71,14 +86,9 @@ function makeCards(results, topic, searchTerm) {
 		authors.innerHTML = article.byline;
 		if(article.multimedia === null) {
 			img.src = './noImg.png';
-			console.log('NULLLLL');
-			console.log(article.title);
 		} else {
 			img.src = article.multimedia[4].url;
-			console.log("NN")
-			
 		}
-		
 		card.href = article.short_url;
 		card.className = "card";
 		textBox.className = "textBox";
@@ -93,7 +103,6 @@ function makeCards(results, topic, searchTerm) {
 		section.appendChild(card);
 	}
 }
-
 
 const topicsArray = [
 	"arts",
@@ -127,5 +136,5 @@ const topicsArray = [
 
 //grabArticles(key, topicsArray[0]);
 
-grabArticles(key, topicsArray[1]);
-//grabArticles(key, topicsArray[2]);
+//grabArticles(key, topicsArray[1]);
+grabArticles(key, topicsArray[2]);
