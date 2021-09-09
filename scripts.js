@@ -2,7 +2,9 @@ const key = "L6hLw10R0bLGztF9APZn68K21ZWbFlAC";
 
 //Arts Search Form Code
 const artsSearchForm = document.querySelector("#artsSearchForm");
+const automobilesSearchForm = document.querySelector("#automobilesSearchForm");
 
+//ARTS SECTION SEARCH
 artsSearchForm.addEventListener("submit", async function (e) {
 	e.preventDefault();
 	const searchTerm = artsSearchForm.elements.query.value.toUpperCase();
@@ -14,43 +16,52 @@ artsSearchForm.addEventListener("submit", async function (e) {
 	const filteredRes = arrayResults.filter((result) =>
 		result.title.toUpperCase().includes(searchTerm)
 	);
-
-	
-		//if the searched results returned empty - return a card that says, search results for 'searchTerm' returned no resutls - specific to arts section and arts design
-	console.log('filt length', filteredRes.length);	
-	if(filteredRes.length === 0) 
-		{
-			makeNoResCard(searchTerm);
-			console.log("ran");
-		} 
-
-	makeCards(filteredRes, "arts");
+	makeCards(filteredRes, "arts", searchTerm);
 	searchInput.value = " ";
 });
 
-//Function to dynamically create event listeners for specific search forms base don section name
-//API CALL -- > Retrieves articles according to specific topic
+//AUTOMOBILES SECTION SEARCH
+automobilesSearchForm.addEventListener("submit", async function (e) {
+	e.preventDefault();
+	const searchTerm = automobilesSearchForm.elements.query.value.toUpperCase();
+	const searchInput = document.querySelector('#searchAutomobiles');
+	const res = await axios.get(
+		`https://api.nytimes.com/svc/topstories/v2/automobiles.json?api-key=${key}`
+	);
+	const arrayResults = res.data.results;
+	const filteredRes = arrayResults.filter((result) =>
+		result.title.toUpperCase().includes(searchTerm)
+	);
+	makeCards(filteredRes, "automobiles", searchTerm);
+	searchInput.value = " ";
+});
 async function grabArticles(key, topic) {
-
-	//async api call
 	const res = await axios.get(
 		`https://api.nytimes.com/svc/topstories/v2/${topic}.json?api-key=${key}`
 	);
-
-	// creating an array from returned API call
 	let arrayResults = res.data.results;
-	
 	//makes cards according to specific topic
 	makeCards(arrayResults, `${topic}`);
 }
 
 
-//Creates success cards
-function makeCards(results, topic) {
+//Creates article cards
+function makeCards(results, topic, searchTerm) {
+	console.log('make cards res', results);
 	let section = document.body.querySelector(`#${topic}ResultsAll`);
-	//clears results that are already populating the section - important for search feature or card are added onto the previous results
 	section.innerHTML = "";
+	if (results.length === 0){
+		console.log('no results');
+		const textBox = document.createElement("DIV");
+		const title = document.createElement("P");
+		textBox.className = 'card';
+		title.className = 'title';
+		title.innerHTML = `No Results for ${searchTerm}`;
+		textBox.appendChild(title);
+		section.appendChild(textBox);
+	}
 	for (let article of results) {
+		console.log('art multi', article.multimedia);
 		const card = document.createElement("A");
 		const textBox = document.createElement("DIV");
 		const img = document.createElement("IMG");
@@ -58,30 +69,31 @@ function makeCards(results, topic) {
 		const authors = document.createElement("P");
 		title.innerHTML = article.title;
 		authors.innerHTML = article.byline;
-		img.src = article.multimedia[4].url;
+		if(article.multimedia === null) {
+			img.src = './noImg.png';
+			console.log('NULLLLL');
+			console.log(article.title);
+		} else {
+			img.src = article.multimedia[4].url;
+			console.log("NN")
+			
+		}
+		
 		card.href = article.short_url;
 		card.className = "card";
 		textBox.className = "textBox";
 		title.className = "title";
 		textBox.appendChild(title);
 		textBox.appendChild(authors);
-		card.appendChild(img);
+		if(img ){
+			card.appendChild(img);
+		}
+		
 		card.appendChild(textBox);
 		section.appendChild(card);
 	}
 }
-function makeNoResCard (searchTerm) {
-	const section = document.body.querySelector('#artsResultsAll');
-	const card = document.createElement("DIV");
-	const text = document.createElement("P");
-	text.innerHTML = `There are no current results for ${searchTerm}`;
-	text.className = "title";
-	card.className = "card";
-	card.appendChild(text);
-	section.appendChild(card);
-	console.log(card);
-	console.log(section);
-}
+
 
 const topicsArray = [
 	"arts",
@@ -113,7 +125,7 @@ const topicsArray = [
   "world", */
 ];
 
-grabArticles(key, topicsArray[0]);
+//grabArticles(key, topicsArray[0]);
 
-//grabArticles(key, topicsArray[1]);
+grabArticles(key, topicsArray[1]);
 //grabArticles(key, topicsArray[2]);

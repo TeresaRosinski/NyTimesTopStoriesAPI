@@ -7,51 +7,6 @@
   margin: 0;
   padding: 0;
 }
-.hide{
-  display:none;
-}
-.show{
-  display:flex;
-}
-.searchForm{ 
-  flex-direction: row;
-  justify-content:flex-start;
-  align-items: flex-end;
-}
-.searchForm input{
-  width: 55vh;
-  color:#203647;
-  margin: 1%;
-  padding: 1%;
-  font-size: 130%;
-  background-color: #f5f5f5;
-  border: 1px solid #4DA8DA;
-}
-
-.searchForm button {
-  padding-top: 1%;
-  padding-bottom: 1%;
-  padding-left: 5%;
-  padding-right: 5%;
-  font-size: 120%;
-  font-family: 'Zen Tokyo Zoo';
-  background-color: #f5f5f5;
-  color: #4DA8DA;
-  border: 1px solid #4DA8DA;
-  border-radius: 2px;
-}
-.searchForm label {
-  font-size: 200%;
-  font-family: 'Zen Tokyo Zoo', cursive;
-  color: #4DA8DA;
-}
-#arts button:hover{
-  cursor: pointer;
-  background-color: #4DA8DA;
-  color: #f5f5f5;
-  transition: .2s;
-  font-size: 130%;
-}
 .projectOverview{
   font-family: 'Josefin Sans', sans-serif;
   display: flex;
@@ -67,17 +22,6 @@
   font-size: 400%;
   margin-bottom: 5%;
 }
-#arts {
-  padding:5%;
-  background-color: #203647;
-}
-.artsResSty{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
 
 .artsHeader{
   justify-content: center;
@@ -88,8 +32,56 @@
 .artsTitle{
   font-family: 'Zen Tokyo Zoo', cursive;
   font-size: 700%;
-  
   color:#4DA8DA;
+}
+.artsSearchForm{ 
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items: flex-end;
+}
+.artsSearchForm input{
+  width: 55vh;
+  color:#203647;
+  margin: 1%;
+  padding: 1%;
+  font-size: 130%;
+  background-color: #f5f5f5;
+  border: 1px solid #4DA8DA;
+}
+.artsSearchForm button {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 120%;
+  font-family: 'Zen Tokyo Zoo';
+  background-color: #f5f5f5;
+  color: #4DA8DA;
+  border: 1px solid #4DA8DA;
+  border-radius: 2px;
+}
+.artsSearchForm label {
+  font-size: 200%;
+  font-family: 'Zen Tokyo Zoo', cursive;
+  color: #4DA8DA;
+}
+#arts button:hover{
+  cursor: pointer;
+  background-color: #4DA8DA;
+  color: #f5f5f5;
+  transition: .2s;
+  font-size: 130%;
+}
+#arts {
+  padding:5%;
+  background-color: #203647;
+}
+.artsResSty{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 #arts .card {
   width: 20%;
@@ -121,27 +113,75 @@
 }
 
 
-
 #automobiles{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   background-color: #490b3d;
+  padding-bottom: 5%;
+}
+.autoHeader{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  margin-bottom: 10%;
+  margin-top: 15%;
+  margin-right:7%;
+  padding-right: 3%;
+  
 }
 .automobilesTitle{
-  width: 60%;
   font-size: 800%;
-  margin-left: 40%;
-  margin-bottom: 10%;
-  text-align: center;
-  padding-top: 15%;
-  padding-right:5%;
   font-family: 'STIX Two Math', serif;
-  letter-spacing: 4px;
-  background-color: #490b3d;
+  letter-spacing: 5px;
   color: #f5f5f5;
-  border-bottom: 1px solid #f1B814;
+}
+.automobilesSearchForm{
+  margin-top: 3%;
+  font-size: 130%;
+  font-family: 'STIX Two Math', serif;
+  color: #f5f5f5;
+  padding-bottom: 2%;
+  border-bottom: 2px solid #f1B814;
+  letter-spacing: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+}
+.automobilesSearchForm input{
+  background-color: #f5f5f5;
+  padding: 1%;
+  border: 1px solid #f5f5f5;
+  font-size: 110%;
+  font-family: 'STIX Two Math', serif;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+.automobilesSearchForm button{
+  background-color: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  border-radius: 5%;
+  padding: 1%;
+  color: #490b3d;
+  font-family: 'STIX Two Math', serif;
+  font-size: 100%;
+  letter-spacing: 1px;
+}
+.automobilesSearchForm button:hover{
+  padding: 1.5%;
+  cursor: pointer;
+}
+.automobilesResultsAll{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #490b3d; 
 }
 #automobiles .card{
   display: flex;
