@@ -62,7 +62,6 @@ async function grabArticles(key, topic) {
 	makeCards(arrayResults, `${topic}`);
 }
 
-
 //Creates article cards
 function makeCards(results, topic, searchTerm) {
 	let section = document.body.querySelector(`#${topic}ResultsAll`);
@@ -70,8 +69,8 @@ function makeCards(results, topic, searchTerm) {
 	if (results.length === 0){
 		const textBox = document.createElement("DIV");
 		const title = document.createElement("P");
-		textBox.className = 'card';
-		title.className = 'title';
+		textBox.className = 'noResCard';
+		title.className = 'noRestitle';
 		title.innerHTML = `No Results for ${searchTerm}`;
 		textBox.appendChild(title);
 		section.appendChild(textBox);
@@ -134,7 +133,6 @@ const topicsArray = [
   "world", */
 ];
 
-//grabArticles(key, topicsArray[0]);
-
-//grabArticles(key, topicsArray[1]);
+grabArticles(key, topicsArray[0]);
+grabArticles(key, topicsArray[1]);
 grabArticles(key, topicsArray[2]);
