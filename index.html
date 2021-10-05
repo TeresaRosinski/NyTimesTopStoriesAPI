@@ -1,61 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Top Stories NY Times API</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  </head>
-  <body>
-    <div class="projectOverview">
-    <p class="headline">Top News Stories</p>
-    <p>The purpose of this project is to practice connecting to an API and experimenting with styling, colors and fonts.</p>
-    <p>This project is built with vanilla Javascript.</p>
-    <p>This project works with the New York Times Top News Stories API</p>
-    <p>The colors were chosen from <a href="https://designshack.net/articles/trends/best-website-color-schemes/">Designs Hack</a></p>
-  </div>
-    <div id="newsStories">
-      <div id="arts">
-        <div class="artsHeader">
-          <p class="artsTitle">arts</p>
-          <form id="artsSearchForm" class="artsSearchForm">
-            <label for="searchArts"> Search For  A Specific Article:</label>
-            <input type="text" name="query" id="searchArts">
-            <button>Submit</button>
-          </form>
-        </div>
-        <div id="artsResultsAll" class="artsResSty">
-        </div>
-  
-      </div>
-      <div id="automobiles">
-        <div class="autoHeader">
-          <p class="automobilesTitle">automobiles</p>
-          <form id="automobilesSearchForm" class="automobilesSearchForm">
-            <label for="searchAutomobiles">Search For an Article</label>
-            <input type="text" name="query" id="searchAutomobiles">
-            <button>Submit</button>
-          </form>
-        </div>
-        <div id="automobilesResultsAll" class="automobilesResultsAll">
-        </div>
-      </div>
-      <div id="books">
-        <div class="booksHeader">
-          <p class="booksTitle">books</p>
-          <form id="booksSearchForm" class="booksSearchForm">
-            <input type="text" name="query" id="searchBooks" placeholder="Search For an Article">
-            <button>Submit</button>
-          </form>
-        </div>
-        <div id="booksResultsAll" class="bookssResultsAll">
-        </div>
-      
-      </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
+		<title>Top Stories NY Times API</title>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	</head>
+	<body>
+		<div class="projectOverview">
+			<p class="headline">NY Times Top News Stories</p>
+      <div class="textGroup">
+			<p class="subText">
+				The purpose of this project is to practice connecting to an API and
+				experimenting with styling, colors and fonts.
+			</p>
+			<p class="subText">This project is built with vanilla Javascript.</p>
+			<p class="subText">
+				This project works with the New York Times Top News Stories API
+			</p>
+			<p class="subText">
+				The colors were chosen from
+				<a
+					href="https://designshack.net/articles/trends/best-website-color-schemes/"
+					>Designs Hack</a
+				>
+			</p>
     </div>
-   
-    <script src="scripts.js"></script>
-  </body>
+		</div>
+		<div id="newsStories">
+			<div id="arts">
+				<div class="artsHeader">
+					<p class="artsTitle">arts</p>
+					<form id="artsSearchForm" class="artsSearchForm">
+						<label for="searchArts"> Search For A Specific Article:</label>
+						<input type="text" name="query" id="searchArts" />
+						<button>Submit</button>
+					</form>
+				</div>
+				<div id="artsResultsAll" class="artsResSty"></div>
+			</div>
+			<div id="automobiles">
+				<div class="autoHeader">
+					<p class="automobilesTitle">automobiles</p>
+					<form id="automobilesSearchForm" class="automobilesSearchForm">
+						<label for="searchAutomobiles">Search For an Article</label>
+						<input type="text" name="query" id="searchAutomobiles" />
+						<button>Submit</button>
+					</form>
+				</div>
+				<div id="automobilesResultsAll" class="automobilesResultsAll"></div>
+			</div>
+			<div id="books">
+				<div class="booksHeader">
+					<p class="booksTitle">books</p>
+					<form id="booksSearchForm" class="booksSearchForm">
+						<input
+							type="text"
+							name="query"
+							id="searchBooks"
+							placeholder="Search For an Article"
+						/>
+						<button>Submit</button>
+					</form>
+				</div>
+				<div id="booksResultsAll" class="bookssResultsAll"></div>
+			</div>
+		</div>
+
+		<script src="scripts.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+		<script>
+			gsap.from(".headline", { opacity: 0, duration: 1, y: -60 });
+			gsap.from(".subText", {
+				opacity: 0,
+				duration: 1,
+				y: 50,
+				delay: 0.7,
+				stagger: 1,
+			});
+		</script>
+	</body>
 </html>

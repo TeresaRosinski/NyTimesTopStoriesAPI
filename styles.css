@@ -10,17 +10,37 @@
 .projectOverview{
   font-family: 'Josefin Sans', sans-serif;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  min-height: 20vh;
-  padding: 10%;
-  font-size:120%;
-  line-height: 120%;
+  padding-top: 10%;
+  padding-bottom: 10%;
 }
 .headline{
   font-size: 400%;
-  margin-bottom: 5%;
+  height: auto;
+  line-height: 120%;
+  letter-spacing: 2px;
+  margin-left: 10%;
+}
+.textGroup{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+
+  margin-right: 5%;
+  margin-left: 5%;
+}
+.subText{
+  line-height: 100%;
+  margin: 1%;
+  font-size: 120%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2%;
 }
 .noResCard{
   display: flex;
