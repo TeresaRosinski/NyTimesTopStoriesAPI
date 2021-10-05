@@ -11,23 +11,24 @@
 	<body>
 		<div class="projectOverview">
 			<p class="headline">NY Times Top News Stories</p>
-      <div class="textGroup">
-			<p class="subText">
-				The purpose of this project is to practice connecting to an API and
-				experimenting with styling, colors and fonts.
-			</p>
-			<p class="subText">This project is built with vanilla Javascript.</p>
-			<p class="subText">
-				This project works with the New York Times Top News Stories API
-			</p>
-			<p class="subText">
-				The colors were chosen from
-				<a
-					href="https://designshack.net/articles/trends/best-website-color-schemes/"
-					>Designs Hack</a
-				>
-			</p>
-    </div>
+			<div class="textGroup">
+				<p class="subText">
+					The purpose of this project is to practice connecting to an API and
+					experimenting with styling, colors and fonts.
+				</p>
+				<p class="subText">This project is built with vanilla Javascript.</p>
+				<p class="subText">
+					This project works with the New York Times Top News Stories API
+				</p>
+				<p class="subText">
+					The colors were chosen from
+					<a
+						href="https://designshack.net/articles/trends/best-website-color-schemes/"
+						>Designs Hack</a
+					>
+				</p>
+				<div class="scrollUp"></div>
+			</div>
 		</div>
 		<div id="newsStories">
 			<div id="arts">
@@ -72,14 +73,34 @@
 		<script src="scripts.js"></script>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
 		<script>
 			gsap.from(".headline", { opacity: 0, duration: 1, y: -60 });
+
+			gsap.to(".projectOverview", {
+				scrollTrigger: "#newsStoies",
+				opacity: 0.6,
+				duration: 2,
+			});
+
 			gsap.from(".subText", {
 				opacity: 0,
 				duration: 1,
 				y: 50,
 				delay: 0.7,
 				stagger: 1,
+			});
+
+			gsap.from(".artsHeader", {
+				scrollTrigger: "#artsSearchForm",
+				opacity: 0,
+				duration: 3,
+			});
+
+			gsap.from(".autoHeader", {
+				scrollTrigger: "#automobilesSearchForm",
+				opacity: 0,
+				duration: 3,
 			});
 		</script>
 	</body>
