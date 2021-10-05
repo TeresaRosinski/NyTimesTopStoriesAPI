@@ -58,6 +58,7 @@ async function grabArticles(key, topic) {
 		`https://api.nytimes.com/svc/topstories/v2/${topic}.json?api-key=${key}`
 	);
 	let arrayResults = res.data.results;
+	console.log(arrayResults);
 	//makes cards according to specific topic
 	makeCards(arrayResults, `${topic}`);
 }
@@ -81,8 +82,13 @@ function makeCards(results, topic, searchTerm) {
 		const img = document.createElement("IMG");
 		const title = document.createElement("P");
 		const authors = document.createElement("P");
+		const date = document.createElement("P");
 		title.innerHTML = article.title;
 		authors.innerHTML = article.byline;
+		const year = article.published_date.slice(0, 4);
+		const month = article.published_date.slice (5, 7);
+		const day = article.published_date.slice(8, 10);
+		date.innerHTML = `${day}/${month}/${year}`;
 		if(article.multimedia === null) {
 			img.src = './noImg.png';
 		} else {
@@ -92,8 +98,10 @@ function makeCards(results, topic, searchTerm) {
 		card.className = "card";
 		textBox.className = "textBox";
 		title.className = "title";
+		date.className = "date"
 		textBox.appendChild(title);
 		textBox.appendChild(authors);
+		textBox.appendChild(date);
 		if(img ){
 			card.appendChild(img);
 		}

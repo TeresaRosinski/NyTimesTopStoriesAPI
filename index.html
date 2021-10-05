@@ -16,7 +16,10 @@
 					The purpose of this project is to practice connecting to an API and
 					experimenting with styling, colors and fonts.
 				</p>
-				<p class="subText">This project is built with vanilla Javascript.</p>
+				<p class="subText">
+					This project is built with vanilla Javascript with animations from
+					GreenSock
+				</p>
 				<p class="subText">
 					This project works with the New York Times Top News Stories API
 				</p>
@@ -78,7 +81,7 @@
 			gsap.from(".headline", { opacity: 0, duration: 1, y: -60 });
 
 			gsap.to(".projectOverview", {
-				scrollTrigger: "#newsStoies",
+				scrollTrigger: "#newsStories",
 				opacity: 0.6,
 				duration: 2,
 			});
