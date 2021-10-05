@@ -9,7 +9,7 @@ const bookssSearchForm = document.querySelector("#booksSearchForm");
 artsSearchForm.addEventListener("submit", async function (e) {
 	e.preventDefault();
 	const searchTerm = artsSearchForm.elements.query.value.toUpperCase();
-	const searchInput = document.querySelector('#searchArts');
+	const searchInput = document.querySelector("#searchArts");
 	const res = await axios.get(
 		`https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=${key}`
 	);
@@ -25,7 +25,7 @@ artsSearchForm.addEventListener("submit", async function (e) {
 automobilesSearchForm.addEventListener("submit", async function (e) {
 	e.preventDefault();
 	const searchTerm = automobilesSearchForm.elements.query.value.toUpperCase();
-	const searchInput = document.querySelector('#searchAutomobiles');
+	const searchInput = document.querySelector("#searchAutomobiles");
 	const res = await axios.get(
 		`https://api.nytimes.com/svc/topstories/v2/automobiles.json?api-key=${key}`
 	);
@@ -41,7 +41,7 @@ automobilesSearchForm.addEventListener("submit", async function (e) {
 bookssSearchForm.addEventListener("submit", async function (e) {
 	e.preventDefault();
 	const searchTerm = bookssSearchForm.elements.query.value.toUpperCase();
-	const searchInput = document.querySelector('#searchbooks');
+	const searchInput = document.querySelector("#searchbooks");
 	const res = await axios.get(
 		`https://api.nytimes.com/svc/topstories/v2/automobiles.json?api-key=${key}`
 	);
@@ -58,7 +58,6 @@ async function grabArticles(key, topic) {
 		`https://api.nytimes.com/svc/topstories/v2/${topic}.json?api-key=${key}`
 	);
 	let arrayResults = res.data.results;
-	console.log(arrayResults);
 	//makes cards according to specific topic
 	makeCards(arrayResults, `${topic}`);
 }
@@ -67,11 +66,11 @@ async function grabArticles(key, topic) {
 function makeCards(results, topic, searchTerm) {
 	let section = document.body.querySelector(`#${topic}ResultsAll`);
 	section.innerHTML = "";
-	if (results.length === 0){
+	if (results.length === 0) {
 		const textBox = document.createElement("DIV");
 		const title = document.createElement("P");
-		textBox.className = 'noResCard';
-		title.className = 'noRestitle';
+		textBox.className = "noResCard";
+		title.className = "noRestitle";
 		title.innerHTML = `No Results for ${searchTerm}`;
 		textBox.appendChild(title);
 		section.appendChild(textBox);
@@ -86,11 +85,11 @@ function makeCards(results, topic, searchTerm) {
 		title.innerHTML = article.title;
 		authors.innerHTML = article.byline;
 		const year = article.published_date.slice(0, 4);
-		const month = article.published_date.slice (5, 7);
+		const month = article.published_date.slice(5, 7);
 		const day = article.published_date.slice(8, 10);
 		date.innerHTML = `${day}/${month}/${year}`;
-		if(article.multimedia === null) {
-			img.src = './noImg.png';
+		if (article.multimedia === null) {
+			img.src = "./noImg.png";
 		} else {
 			img.src = article.multimedia[4].url;
 		}
@@ -98,14 +97,14 @@ function makeCards(results, topic, searchTerm) {
 		card.className = "card";
 		textBox.className = "textBox";
 		title.className = "title";
-		date.className = "date"
+		date.className = "date";
 		textBox.appendChild(title);
 		textBox.appendChild(authors);
 		textBox.appendChild(date);
-		if(img ){
+		if (img) {
 			card.appendChild(img);
 		}
-		
+
 		card.appendChild(textBox);
 		section.appendChild(card);
 	}
